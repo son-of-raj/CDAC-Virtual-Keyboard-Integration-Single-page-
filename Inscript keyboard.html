@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Inscript keyboard</title>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" type="text/css" href="https://gisttransserver.in/Fonts/css/cdac-gist-fonts.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <SCRIPT TYPE="TEXT/JAVASCRIPT" SRC="https://gisttransserver.in/js/CDAC-Typing.min.js "> </SCRIPT> 
+<script>
+        $(document).ready(function () {
+            var locale = null;
+            var cookies = document.cookie.split(";");
+            $(cookies).each(function (i, cookie) {
+                if (cookie.indexOf("LanguageLocale=") != -1) {
+                    locale = cookie.split("=")[1];
+                    setLanguage(locale);
+                    $("#language").val(locale);
+                }
+            });
+            if (locale == null) {
+                locale = $('#language').find('option:selected').val();;
+                setLanguage(locale);
+                setCookie(locale);
+            }
+            $('#language').on('change', function () {
+                locale = this.value;
+                setLanguage(locale);
+                setCookie(locale);
+            });
+jQuery(function(){
+   jQuery('#kbdIcon').click();
+   $("#gistFK_cdacLogo").hide();
+   $("#gistFK_CloseBtn").hide();
+   $("#gistFK_gistLogo").replaceWith( '<a href="https://www.xelpmoc.in/" target="_blank">Xelpmoc</a>' );
+});
+            $('#kbdIcon').on('click', function(){
+                //openKeyboard($('#language').find('option:selected').text().toLowerCase());
+				openKeyboard($('#language').find('option:selected').val());
+            });
+ $("#gist_flt_kbdBX_firstInnerBox").css({top: 5000, left: 200});
+            function setCookie(langLocale)
+            {
+                /*Setting Cookie*/
+                var today = new Date();
+                var expire = new Date();
+                expire.setTime(today.getTime() + 3600000 * 24 * 7);
+                document.cookie = "LanguageLocale=" + langLocale + "; expires=" + expire.toUTCString();
+                /*Setting Cookie*/
+            }
+
+            enableTyping(new Array('nameInput'), null, 'NAME', locale,false);
+            enableTyping(new Array('addressInput'), null, 'ADDRESS', locale,false);
+            enableTyping(new Array('nameSource'), new Array('nameTarget'), 'NAME', locale,false);
+            enableTyping(new Array('addressSource'), new Array('addressTarget'), 'ADDRESS', locale,false);
+        });
+
+	 window.onload = function() {
+ 	 document.getElementById("nameInput").focus();
+};
+</script>
+</head>
+<body style="height:100%;">
+<div>
+        <form name="form6" action=""><center>
+        <h3>  Inscript Keyboard </h3>
+<textarea name="txtInputSpace1" rows="7" cols="100" id="nameInput" placeholder="Enter your text here"></textarea> &nbsp &nbsp &nbsp &nbsp<br><label><b class="">Select Language</b></label>&nbsp &nbsp &nbsp<select id="language">
+                                            <option value="en_in">English</option>
+                                        <option value="hi_in" selected="selected" alt="Type in Hindi">Hindi</option>
+                                        <option value="pn_in" alt="Type in Panjabi">Punjabi</option>
+                                        <option value="gj_in" alt="Type in Gujarati">Gujarati</option>
+                                        <option value="mr_in" alt="Type in Marathi">Marathi</option>
+					<option value="as_in" alt="Type in Assamese">Assamese</option>
+					<option value="bn_in" alt="Type in Bengali">Bengali</option>
+                                        <option value="ml_in" alt="Type in Malayalam">Malayalam</option>
+                                        <option value="tm_in" alt="Type in Tamil">Tamil</option>
+                                        <option value="tl_in" alt="Type in Telugu">Telugu</option>
+                                        <option value="kn_in" alt="Type in Kannada">Kannada</option>
+                                        <option value="or_in" alt="Type in Oriya">Odia</option>
+                                        <option value="ur_in" alt="Type in Odia">Urdu</option> 
+                                        </select>&nbsp &nbsp<a href="#" id="kbdIcon"><button>Keyboard</button>
+                    </div>
+		</div>
+            </div></center>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </form>
+    </div>
+    </body>
+
+<script>
+
+</script>
+</html>
